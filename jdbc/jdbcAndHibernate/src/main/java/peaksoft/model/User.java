@@ -24,6 +24,14 @@ public class User {
         this.lastName = lastName;
         this.age = age;
     }
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
+    }
 
     public Long getId() {
         return id;

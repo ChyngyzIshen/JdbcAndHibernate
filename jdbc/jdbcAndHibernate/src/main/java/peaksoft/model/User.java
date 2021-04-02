@@ -2,24 +2,29 @@ package peaksoft.model;
 
 import javax.persistence.*;
 
-@Table
-public class User {
-    @Id
-    private Long id;
 
-    @Column
+@Entity
+@Table(name = "users")
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
+
+    @Column(name = "name")
     private String name;
 
-    @Column
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column
-    private Byte age;
+    @Column(name = "age")
+    private byte age;
 
     public User() {
     }
 
-    public User(String name, String lastName, Byte age) {
+    public User(String name, String lastName, byte age) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
@@ -33,12 +38,16 @@ public class User {
                 '}';
     }
 
-    public Long getId() {
-        return id;
+    public long getId(long id) {
+        return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
+    }
+
+    public void setAge(byte age) {
+        this.age = age;
     }
 
     public String getName() {
@@ -57,12 +66,8 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Byte getAge() {
+    public byte getAge() {
         return age;
-    }
-
-    public void setAge(Byte age) {
-        this.age = age;
     }
 
 }
